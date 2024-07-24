@@ -1,63 +1,63 @@
 # AL_Kraza
 <img src="https://github.com/minamagdy-IOS/AL_Kraza/blob/main/src/WhatsApp%20Image%202024-07-24%20at%206.37.06%20PM%20(1).jpeg?raw=true" alt="jCalendar Library" width="300" />
 <img src="https://github.com/minamagdy-IOS/AL_Kraza/blob/main/src/WhatsApp%20Image%202024-07-24%20at%206.37.03%20PM%20(1).jpeg?raw=true" alt="jCalendar Library" width="300" />
-## Application Description
+## وصف التطبيق
 
-The **Service Providers and Clients Data** application is a system for managing the data of service providers and clients. It is developed using Java and databases such as SQL and PL/SQL. The application is designed to work with the Apache NetBeans (IDE 15) integrated development environment, using SQL Developer to manage the Oracle Database.
+ تم تطويره باستخدام لغة Java وقواعد بيانات مثل SQL و PL/SQL. التطبيق مصمم للعمل مع بيئة تطوير Apache NetBeans (IDE 15) المتكاملة، باستخدام SQL Developer لإدارة قاعدة بيانات Oracle.
 
-## Requirements
+## المتطلبات
 
 - **Java Development Kit (JDK)**
 - **Apache NetBeans (IDE 15)**
 - **SQL Developer**
 - **Oracle Database**
-- External library **jCalendar**
+- مكتبة خارجية **jCalendar**
 
-## Libraries Used
+## المكتبات المستخدمة
 
-- **jCalendar**: An external Java library that allows date selection in a dedicated field. You will find this library in the project folder.
+- **jCalendar**: مكتبة Java خارجية تتيح اختيار التاريخ في حقل مخصص. ستجد هذه المكتبة في مجلد المشروع.
 
-## Features
+## الميزات
 
-- Easily manage service providers and clients data.
-- Use jCalendar library for date selection without the need for a separate button or option.
+- إدارة بيانات مقدمي الخدمات والعملاء بسهولة.
+- استخدام مكتبة jCalendar لاختيار التاريخ دون الحاجة إلى زر أو خيار منفصل.
 
-## Environment Setup
+## إعداد البيئة
 
-1. **Install Java Development Kit (JDK)**:
-   - Ensure you have the appropriate JDK installed to run the application.
+1. **تثبيت Java Development Kit (JDK)**:
+   - تأكد من تثبيت JDK المناسب لتشغيل التطبيق.
 
-2. **Install Apache NetBeans (IDE 15)**:
-   - Download and install Apache NetBeans from the official website.
+2. **تثبيت Apache NetBeans (IDE 15)**:
+   - قم بتنزيل وتثبيت Apache NetBeans من الموقع الرسمي.
 
-3. **Install SQL Developer**:
-   - Download and install SQL Developer from the official website to manage the database.
+3. **تثبيت SQL Developer**:
+   - قم بتنزيل وتثبيت SQL Developer من الموقع الرسمي لإدارة قاعدة البيانات.
 
-4. **Set Up the Database**:
-   - Set up the database using Oracle Database.
-   - Use SQL Developer to execute the database codes.
+4. **إعداد قاعدة البيانات**:
+   - قم بإعداد قاعدة البيانات باستخدام Oracle Database.
+   - استخدم SQL Developer لتنفيذ أكواد قاعدة البيانات.
 
-5. **Add jCalendar Library**:
-   - Ensure the jCalendar library is in the project folder.
-   - Add it to the project in NetBeans.
+5. **إضافة مكتبة jCalendar**:
+   - تأكد من وجود مكتبة jCalendar في مجلد المشروع.
+   - أضفها إلى المشروع في NetBeans.
 
-## How to Run
+## كيفية التشغيل
 
-1. **Open the Project in NetBeans**:
-   - Open Apache NetBeans.
-   - Load the "Service Providers and Clients Data" project.
+1. **فتح المشروع في NetBeans**:
+   - افتح Apache NetBeans.
+   - قم بتحميل مشروع "بيانات مقدمي الخدمات والعملاء".
 
-2. **Add jCalendar Library**:
-   - Right-click on the project in NetBeans and select "Properties".
-   - In the "Libraries" section, add the jCalendar library located in the project folder.
+2. **إضافة مكتبة jCalendar**:
+   - انقر بزر الماوس الأيمن على المشروع في NetBeans واختر "Properties".
+   - في قسم "Libraries"، أضف مكتبة jCalendar الموجودة في مجلد المشروع.
 
-3. **Run the Application**:
-   - Click the run button in NetBeans to start the application.
+3. **تشغيل التطبيق**:
+   - انقر على زر التشغيل في NetBeans لبدء التطبيق.
 
-## Important Notes
+## ملاحظات هامة
 
-- **No Button or Option for Adding Date**: The jCalendar library is used to select the date in a dedicated field.
-- **Ensure the Library is in the Project Folder**: The jCalendar library must be in the project folder for the application to work correctly.
+- **لا يوجد زر أو خيار لإضافة التاريخ**: يتم استخدام مكتبة jCalendar لاختيار التاريخ في حقل مخصص.
+- **تأكد من وجود المكتبة في مجلد المشروع**: يجب أن تكون مكتبة jCalendar في مجلد المشروع لكي يعمل التطبيق بشكل صحيح.
 
 
 
