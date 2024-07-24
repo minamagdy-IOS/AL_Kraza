@@ -1,0 +1,111 @@
+
+
+CREATE TABLE AL_KRAZA (
+name VARCHAR2(30) CONSTRAINT co_na_PK PRIMARY KEY ,
+password VARCHAR2(30) 
+);
+----------------------------------------------------------------------------------
+CREATE TABLE LOgi_AL_KRAZA (
+name VARCHAR2(30),
+password VARCHAR2(30) ,
+phone NUMBER(11),
+email VARCHAR2(50) PRIMARY KEY,
+jop VARCHAR2(20) ,
+A_answer_to_the_question VARCHAR2(90),
+B_answer_to_the_question VARCHAR2(90),
+data_add date ,
+CONSTRAINT co_na_fo FOREIGN KEY (name) REFERENCES AL_KRAZA(name)
+);
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+CREATE TABLE INSERT_Served (
+name VARCHAR2(40) PRIMARY KEY    ,
+phone VARCHAR2(13),
+address VARCHAR2(50) ,
+birth_date VARCHAR2(20),
+year_it_vertical VARCHAR2(40),
+yesorno VARCHAR2(15),
+Health_psychological_problems VARCHAR2(100),
+point NUMBER,
+Date_now VARCHAR2(30) DEFAULT SYSDATE,
+birth NUMBER(4)
+);
+----------------------------------------------------------------------------------
+CREATE TABLE Served (
+name VARCHAR2(40)  ,
+point NUMBER,
+year_it_vertical VARCHAR2(40),
+FOREIGN KEY (name) REFERENCES INSERT_Served (name)
+);
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+CREATE or REPLACE TRIGGER  Insert_Serv AFTER INSERT   ON INSERT_Served FOR EACH ROW 
+BEGIN
+INSERT INTO Served VALUES ( :new.name,:new.point,:new.year_it_vertical);
+end;
+/
+----------------------------------------------------------------------------------
+CREATE or REPLACE TRIGGER  delete_Served AFTER DELETE ON Served FOR EACH ROW 
+BEGIN
+DELETE FROM INSERT_Served WHERE name = :new.name and year_it_vertical = :new.year_it_vertical;
+end;
+/
+DROP TRIGGER delete_Served;
+
+--------------------------------------- -------------------------------------------
+CREATE or REPLACE TRIGGER  UPDATE_Served AFTER UPDATE ON INSERT_Served FOR EACH ROW 
+BEGIN
+UPDATE Served SET name = :new.name , point =:new.point , year_it_vertical = :new.year_it_vertical where name = :new.name;
+end;
+/
+---------------------------------------------------------------------------------- 
+CREATE or REPLACE TRIGGER  UPDATE_Served2 AFTER UPDATE ON INSERT_Served FOR EACH ROW 
+BEGIN
+UPDATE Served SET  point = point+:new.point  where name = :new.name and year_it_vertical = :new.year_it_vertical;
+end;
+/
+----------------------------------------------------------------------------------
+
+
+CREATE or REPLACE TRIGGER  log_kraza AFTER INSERT  ON LOgi_AL_KRAZA FOR EACH ROW 
+BEGIN
+INSERT INTO AL_KRAZA VALUES ( :new.name,:new.password);
+end;
+/
+----------------------------------------------------------------------------------
+CREATE or REPLACE TRIGGER  UPDATE_log_kraza BEFORE UPDATE  ON LOgi_AL_KRAZA FOR EACH ROW 
+BEGIN
+UPDATE AL_KRAZA  SET  password = :new.password WHERE name = :new.name;
+end;
+/
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+
+--tests
+DROP TRIGGER UPDATE_log_kraza;
+SELECT * FROM AL_KRAZA ,LOgi_AL_KRAZA;
+DELETE FROM AL_KRAZA ;
+DELETE FROM LOgi_AL_KRAZA ;
+UPDATE LOgi_AL_KRAZA  SET password ='123' WHERE name = 'mario';
+drop table LOgi_AL_KRAZA;
+drop table AL_KRAZA;
+COMMIT ;
+---------------------------------------------------------------------------------- 
+UPDATE INSERT_Served SET point = point +2 where  name = 'mario' and  year_it_vertical = '???? ?????? ???????';
+drop table INSERT_Served;
+drop table Served;
+DROP TRIGGER Insert_Served;
+DROP TRIGGER delete_Served;
+DELETE FROM INSERT_Served ;
+DELETE FROM Served ;
+INSERT INTO INSERT_Served(name,point) VALUES('msa' ,0);
+SELECT   * FROM INSERT_Served;
+SELECT   * FROM Served;
+SELECT   to_char(SYSDATE ,'dd-Mon-yyyy hh:mm:ss pm')   FROM dual;
+DELETE FROM Served WHERE name = 'mario' and year_it_vertical ='الصف الأول الثانوي' ;
